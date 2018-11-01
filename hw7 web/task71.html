@@ -1,0 +1,51 @@
+<html>
+<head>
+<style>
+#news{
+	border:1px solid red;
+	width:400px;
+	height:300px;
+
+}
+h1,p{
+	 margin:0;
+	 padding: 0;
+}
+h1{
+	margin-top: 20px;
+}
+</style>
+</head>
+<body>
+
+<div id="news"></div>
+<button id="sport">Load Sport news</button>
+<button id="politics">Load Politics news</button>
+<button id="bussiness">Load Bussiness news</button>
+
+<script>
+let newsElement = document.getElementById("news");
+let news = {
+			"sport":
+			{"header":"Messi scored 5 goals", "text":"Messi scored 5 goals in last match and became top-scorer of the league"},
+			"politics":
+			{"header":"Trump visited UK", "text":"Trump started his foreign tour by visiting UK"},
+		  "bussiness":
+			{"header":"Dow Jones index has fallen", "text":"Dow Jones index has fallen, because of prices for petrol"}
+
+		};
+		let sport = document.getElementById('sport');
+		let politics = document.getElementById('politics');
+		let bussiness = document.getElementById('bussiness');
+
+		let events = [sport, politics, bussiness];
+		for(let i = 0; i < events.length; i++){
+			events[i].addEventListener("click", function(){
+				let strThis = this.id.toString();
+				console.log(strThis);
+				newsElement.innerHTML = "<h1>" + news[strThis]["header"]+"</h1> <br> <p>"+ news[strThis]["text"]+" </p>";
+			});
+		}
+</script>
+</body>
+</html>
